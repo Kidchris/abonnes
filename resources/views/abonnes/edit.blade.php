@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('title', 'Ajouter/Modifier un Abonne')
 @section('content')
+
 <div class="uk-grid uk-align-center uk-width-1-3 uk-card uk-card-default add-main ">
     @if (isset($abonne))
     <form action="{{ route('abonne.update', $abonne) }}" method="POST" enctype="multipart/form-data">
@@ -47,7 +48,7 @@
                 <div class="uk-margin-small">
                     <div class="uk-inline">
                         <span class="uk-form-icon" uk-icon="icon: receiver"></span>
-                        <input type="text" class="uk-input" id="telephone" name="telephone" placeholder="telephone" value="{{ isset($abonne) ? $abonne->telephone : old('telephone') }}">
+                        <input type="tel" class="uk-input" id="telephone" name="telephone" placeholder="telephone" value="{{ isset($abonne) ? $abonne->telephone : old('telephone') }}" pattern="[0-9]{8}">
                     </div>
                     @error('telephone')
                     <p> {{ $message }}</p>
@@ -58,7 +59,7 @@
 
                     <div class="uk-inline">
                         <span class="uk-form-icon" uk-icon="icon: calendar"></span>
-                        <input type="text" onfocus="(this.type='date')" class="uk-input" id="nom" name="abonnement_fin" placeholder="Fin abonnement" value="{{ isset($abonne) ? $abonne->abonnement_fin : old('abonnement_fin') }}">
+                        <input type="text" onfocus="(this.type='date')" class="uk-input" id="abonnement_fin" name="abonnement_fin" placeholder="Fin abonnement" value="{{ isset($abonne) ? $abonne->abonnement_fin : old('abonnement_fin') }}">
                     </div>
                     @error('abonnement')
                     <p> {{ $message }} </p>
@@ -73,7 +74,7 @@
                         <input type="file" accept="image/*" class="form-control" id="photo" name="photo" title="photo" value="{{ isset($abonne) ? $abonne->photo : old('photo') }}">
                         @if (isset($abonne->photo))
                         <p>Image actuelle</p>
-                        <img src="{{ asset('storage/' . $abonne->photo) }}" alt="" srcset="" width="190" style="border-width:5px; border-color:red;">
+                        <img src="{{ asset('storage/' . $abonne->photo) }}" alt="" width="190" style="border:5px solid #aa0a30;">
                         @endif
                         </input>
                         @if (!isset($abonne->photo))
@@ -98,6 +99,4 @@
         </form>
 
 </div>
-
-
 @endsection

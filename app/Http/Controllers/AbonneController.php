@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Storage;
 
 class AbonneController extends Controller
 {
+    
     /**
      * Display a listing of the resource.
      *
@@ -43,7 +44,7 @@ class AbonneController extends Controller
             "abonnement_fin" => "bail|required",
             "telephone" => "bail|required|unique:abonnes|max:26",
             "email" => "bail|required|string|unique:abonnes|max:256",
-            "photo" => "bail|image|required|unique:abonnes|max:1024"
+            "photo" => "bail|image|required|max:1024"
         ]);
         $img_path = $request->photo->store("abonnes");
         Abonne::create(

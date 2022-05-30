@@ -1,30 +1,17 @@
 @extends("layouts.app")
 @section("title", "Liste des abonnes")
 @section("content")
-<!-- <h1>
-    Tous les abonnes :
-</h1>
-<p>
-    <a href="{{ route('abonne.create') }}" title="Ajouter un Abonne"> Ajouter un abonne</a>
-</p> -->
+
 
 <div class=" uk-flex 
     uk-flex-column@m   uk-flex-row-reverse@s uk-text-center uk-flex-center uk-margin-large" uk-grid>
     <div class=" uk-width-2-3 uk-child-width-1-2@m" uk-grid>
-
-
         @foreach($abonnes as $abonne)
-
-
-
-
-
-
         <div class="uk-container">
 
             <div class="uk-card uk-background-muted uk-card-small uk-card-body uk-card-hover">
                 <div class="uk-flex">
-                    <img class="uk-border-circle uk-align-center" width="190" height="190" src="{{ asset('storage/' .$abonne->photo) }}" style="border: 3px solid #aa0a30; height: 190px !important;">
+                    <img class="uk-border-circle uk-align-center round" width="190" height="190" src="{{ @str_starts_with('http', $abonne->photo) ? $abonne->photo : asset('storage/' .$abonne->photo)}}">
                     <button class="uk-button uk-badge" type="button">Options</button>
                     <div uk-dropdown="mode: click">
                         <ul class="uk-nav uk-dropdown-nav">
@@ -32,16 +19,15 @@
                                 <a href="{{ route('abonne.edit', $abonne) }}">Modifier</a>
 
                             </li>
-                            <hr class="uk-divider-small">
+                            <hr class="uk-divider">
                             <li>
-                                <form action="{{ route('abonne.destroy', $abonne) }}" method="post">
+                                <form action="{{ route('abonne.destroy', $abonne) }}" method="post" class="uk-align-left">
 
                                     @csrf
                                     @method("DELETE")
                                     <input type="submit" value="Retirer l'abonne" class="sup">
 
                                 </form>
-                                <!-- <a href="{{ route('abonne.destroy', $abonne) }}">Supprimer</a> -->
                             </li>
                         </ul>
                     </div>
