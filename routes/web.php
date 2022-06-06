@@ -3,9 +3,9 @@
 use App\Http\Controllers\AbonneController;
 use Illuminate\Support\Facades\Route;
 
-// Route::get('/', function () {
-//     return view('home');
-// });
+Route::get('/test', function () {
+    return view('test');
+});
 Route::get('/', [AbonneController::class, 'index']);
 
 

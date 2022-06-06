@@ -22,7 +22,9 @@
     <link rel="stylesheet" href="{{ asset('storage/uk_assets/css/all.min.css') }}">
     <link rel="stylesheet" href="{{ asset('storage/uk_assets/css/uikit.min.css') }}">
     <link rel="stylesheet" href="{{ asset('storage/css/home.css') }}">
-    <link href="{{ asset('storage/css/bootstrap.min.css') }}" rel="stylesheet">
+    <!-- <link href="{{ asset('storage/css/bootstrap.min.css') }}" rel="stylesheet"> -->
+    <link href="{{ asset('boot/bootstrap.min.css') }}" rel="stylesheet">
+
 </head>
 
 <body>
