@@ -86,7 +86,7 @@
         </main>
     </div>
     <script src="{{ asset('storage/js/bootstrap.bundle.min.js') }}"></script>
-
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="{{ asset('storage/uk_assets/js/uikit.min.js') }}"></script>
     <script src="{{ asset('storage/uk_assets/js/uikit-icons.min.js ')}}"></script>
 </body>
